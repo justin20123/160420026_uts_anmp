@@ -1,15 +1,24 @@
+buildscript {
+    repositories {
+        google()
+    }
+    dependencies {
+        classpath 'androidx.navigation:navigation-safe-args-gradle-plugin:2.4.1'
+    }
+}
+
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.a160420026_uts_anmp"
-        minSdk 22
-        targetSdk 32
+        minSdk 33
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
