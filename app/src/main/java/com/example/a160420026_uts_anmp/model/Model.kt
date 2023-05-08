@@ -10,13 +10,13 @@ import com.google.gson.annotations.SerializedName
 //    val photoUrl:String?
 //)
 
-data class Student(
+data class Book(
+    @SerializedName("isbn")
     val id:String?,
-    @SerializedName("student_name")
-    val name:String?,
-    @SerializedName("birth_of_date")
-    val bod:String?,
-    val phone:String?,
-    @SerializedName("photo_url")
-    val photoUrl:String
+    val title:String?,
+    val subtitle:String?,
+    val author:String?,
+    @SerializedName("published")
+    val publishedOn:String?,
+    val publisher:String?
 )
