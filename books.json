@@ -1,5 +1,4 @@
-{
-  "books": [
+[
     {
       "isbn": "9781593275846",
       "title": "Eloquent JavaScript, Second Edition",
@@ -89,4 +88,3 @@
       "website": "http://chimera.labs.oreilly.com/books/1234000001708/index.html"
     }
   ]
-}

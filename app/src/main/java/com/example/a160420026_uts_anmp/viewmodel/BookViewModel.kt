@@ -25,7 +25,7 @@ class BookViewModel(application: Application): AndroidViewModel(application) {
         bookLoadErrorLD.value = false
 
         queue = Volley.newRequestQueue(getApplication())
-        val url = "https://gist.githubusercontent.com/nanotaboada/6396437/raw/855dd84436be2c86e192abae2ac605743fc3a127/books.json"
+        val url = "https://raw.githubusercontent.com/justin20123/160420026_uts_anmp/master/books.json?token=GHSAT0AAAAAACCAPOYTZAYMPFJW7WSQ4LGEZCZAEBQ"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
