@@ -23,15 +23,14 @@ class EditViewModel (application: Application): AndroidViewModel(application) {
 
         queue = Volley.newRequestQueue(getApplication())
         val url =
-            "https://raw.githubusercontent.com/justin20123/160420026_uts_anmp/master/books.json?id=$id"
+            "https://raw.githubusercontent.com/justin20123/160420026_uts_anmp/master/books.php?id=$id"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
             {
                 Log.d("showvoley", it)
-                val sType = object : TypeToken<ArrayList<Book>>() {}.type
-                val result = Gson().fromJson<ArrayList<Book>>(it, sType)
-                booksLD.value = result[id]
+                val result = Gson().fromJson<Book>(it, Book::class.java)
+                booksLD.value = result
 
                 //Log.d("showvoley", result.toString())
 
