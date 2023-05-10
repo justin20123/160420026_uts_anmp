@@ -116,4 +116,7 @@ implement a real-world Web API.',
         'website' => 'http://chimera.labs.oreilly.com/books/1234000001708/index.html'
     ]
 ];
+if (isset($_GET["id"])) {
+    echo json_encode($array[$_GET["id"]]);
+}
 echo json_encode($array);
