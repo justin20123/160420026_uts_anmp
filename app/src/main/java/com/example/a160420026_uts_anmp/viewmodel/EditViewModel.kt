@@ -13,36 +13,38 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 class EditViewModel (application: Application): AndroidViewModel(application) {
-    val bookLD = MutableLiveData<Book>()
+    val booksLD = MutableLiveData<Book>()
+
     val TAG = "volleyTag"
     private var queue: RequestQueue? = null
 
-    fun getData(isbn:String) {
+
+    fun getData(id: Int) {
+
         queue = Volley.newRequestQueue(getApplication())
-        val url = "https://raw.githubusercontent.com/justin20123/160420026_uts_anmp/master/books.json?isbn=$isbn"
+        val url =
+            "https://raw.githubusercontent.com/justin20123/160420026_uts_anmp/master/books.json?id=$id"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
             {
                 Log.d("showvoley", it)
-                //error panggil gson
-                val sType = object : TypeToken<ArrayList<Book>>() { }.type
-                val result = Gson().fromJson<ArrayList<Book>>(it, Book::class.java)
-                bookLD.value = result[0]
+                val sType = object : TypeToken<ArrayList<Book>>() {}.type
+                val result = Gson().fromJson<ArrayList<Book>>(it, sType)
+                booksLD.value = result[id]
 
-                Log.d("showvoley", result.toString())
+                //Log.d("showvoley", result.toString())
 
 
             },
             {
-//
+                Log.d("showvoley", it.toString())
+
             },
 
 
             )
         stringRequest.tag = TAG
         queue?.add(stringRequest)
-
-
     }
 }
