@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.a160420026_uts_anmp.R
-import com.example.advweek4.model.Book
+import com.example.a160420026_uts_anmp.model.Book
 import kotlinx.android.synthetic.main.book_list_item.view.*
 
 class BookListAdapter(val bookList:ArrayList<Book>):RecyclerView.Adapter<BookListAdapter.BookListHolder>() {
@@ -20,9 +20,9 @@ class BookListAdapter(val bookList:ArrayList<Book>):RecyclerView.Adapter<BookLis
     }
 
     override fun onBindViewHolder(holder: BookListHolder, position: Int) {
-        holder.view.txtTitle.text = bookList[position].id
+        holder.view.textTitle.text = bookList[position].title
         holder.view.txtSubtitle.text = bookList[position].subtitle
-        holder.view.txtAuthor.text = bookList[position].author
+        holder.view.textAuthor.text = bookList[position].author
         holder.view.btnEdit.setOnClickListener {
             val action = BookListFragmentDirections.actionEditBook(bookList[position].id.toString())
             Navigation.findNavController(it).navigate(action)

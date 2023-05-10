@@ -1,4 +1,4 @@
-package com.example.advweek4.model
+package com.example.a160420026_uts_anmp.model
 
 import com.google.gson.annotations.SerializedName
 
@@ -18,5 +18,5 @@ data class Book(
     val author:String?,
     @SerializedName("published")
     val publishedOn:String?,
-    val publisher:String?
+    val description:String?
 )

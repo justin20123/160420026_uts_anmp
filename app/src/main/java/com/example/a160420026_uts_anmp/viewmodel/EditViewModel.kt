@@ -12,38 +12,30 @@ import com.example.a160420026_uts_anmp.model.Book
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
-class BookViewModel(application: Application): AndroidViewModel(application) {
-    val booksLD = MutableLiveData<ArrayList<Book>>()
-    val bookLoadErrorLD = MutableLiveData<Boolean>()
-    val loadingLD = MutableLiveData<Boolean>()
+class EditViewModel (application: Application): AndroidViewModel(application) {
+    val bookLD = MutableLiveData<Book>()
     val TAG = "volleyTag"
     private var queue: RequestQueue? = null
 
-
-    fun refresh() {
-        loadingLD.value = true
-        bookLoadErrorLD.value = false
-
+    fun getData(isbn:String) {
         queue = Volley.newRequestQueue(getApplication())
-        val url = "https://raw.githubusercontent.com/justin20123/160420026_uts_anmp/master/books.json"
+        val url = "https://raw.githubusercontent.com/justin20123/160420026_uts_anmp/master/books.json?isbn=$isbn"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
             {
                 Log.d("showvoley", it)
+                //error panggil gson
                 val sType = object : TypeToken<ArrayList<Book>>() { }.type
-                val result = Gson().fromJson<ArrayList<Book>>(it, sType)
-                booksLD.value = result
-                loadingLD.value = false
+                val result = Gson().fromJson<ArrayList<Book>>(it, Book::class.java)
+                bookLD.value = result[0]
 
                 Log.d("showvoley", result.toString())
 
 
             },
             {
-                Log.d("showvoley", it.toString())
-                bookLoadErrorLD.value = false
-                loadingLD.value = false
+//
             },
 
 
@@ -52,11 +44,5 @@ class BookViewModel(application: Application): AndroidViewModel(application) {
         queue?.add(stringRequest)
 
 
-
-    }
-
-    override fun onCleared() {
-        super.onCleared()
-        queue?.cancelAll(TAG)
     }
 }
