@@ -118,5 +118,6 @@ implement a real-world Web API.',
 ];
 if (isset($_GET["id"])) {
     echo json_encode($array[$_GET["id"]]);
-}
+} else {
 echo json_encode($array);
+}
