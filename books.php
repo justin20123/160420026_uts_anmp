@@ -1,5 +1,6 @@
 <?php
-$array = [
+
+$array = array(
     [
         'id' => 0,
         'isbn' => '9781593275846',
@@ -115,7 +116,7 @@ evolvable HTTP services with Microsoft’s ASP.NET Web API framework. In the pro
 implement a real-world Web API.',
         'website' => 'http://chimera.labs.oreilly.com/books/1234000001708/index.html'
     ]
-];
+);
 if (isset($_GET["id"])) {
     echo json_encode($array[$_GET["id"]]);
 } else {
