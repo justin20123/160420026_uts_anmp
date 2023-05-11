@@ -34,6 +34,6 @@ class EditProfileFragment : Fragment() {
             viewModel.profileLD.value?.phoneNumber = txtPhoneNumber.text.toString()
             viewModel.profileLD.value?.favoriteBook = txtFavBook.text.toString()
         }
-        viewModel.profileLD.value?.name
+
     }
 }

@@ -51,5 +51,10 @@
         android:name="com.example.a160420026_uts_anmp.view.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/itemEditProfile"
+        android:name="com.example.a160420026_uts_anmp.view.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" />
 
 </navigation>
