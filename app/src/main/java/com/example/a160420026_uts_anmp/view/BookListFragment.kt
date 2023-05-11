@@ -21,7 +21,7 @@ class BookListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(BookViewModel::class.java)
-        viewModel.refresh()
+        viewModel.refreshData()
 
         val recView = view.findViewById<RecyclerView>(R.id.recView)
         recView.layoutManager = LinearLayoutManager(context)
@@ -34,7 +34,7 @@ class BookListFragment : Fragment() {
             recView.visibility = View.GONE
             txtError.visibility = View.GONE
             progressLoad.visibility = View.VISIBLE
-            viewModel.refresh()
+            viewModel.refreshData()
             refreshLayout.isRefreshing = false
         }
 
@@ -43,10 +43,9 @@ class BookListFragment : Fragment() {
 
     }
 
-    fun observeViewModel() {
+    private fun observeViewModel() {
         viewModel.booksLD.observe(viewLifecycleOwner, Observer {
-            bookListAdapter.updateStudentList(it)
-
+            bookListAdapter.updateBookList(it)
         })
 
         viewModel.bookLoadErrorLD.observe(viewLifecycleOwner, Observer{

@@ -21,10 +21,10 @@ class BookListAdapter(val bookList:ArrayList<Book>):RecyclerView.Adapter<BookLis
 
     override fun onBindViewHolder(holder: BookListHolder, position: Int) {
         holder.view.textTitle.text = bookList[position].title
-        holder.view.txtSubtitle.text = bookList[position].subtitle
-        holder.view.textAuthor.text = bookList[position].author
-        holder.view.btnEdit.setOnClickListener {
-            val action = BookListFragmentDirections.actionEditBook(bookList[position].id.toString())
+        holder.view.txtPhoneNumber.text = bookList[position].subtitle
+        holder.view.textAuthorDetail.text = bookList[position].author
+        holder.view.btnDetail.setOnClickListener {
+            val action = BookListFragmentDirections.actionDetailFragment(bookList[position].id.toString())
             Navigation.findNavController(it).navigate(action)
         }
 
@@ -34,9 +34,9 @@ class BookListAdapter(val bookList:ArrayList<Book>):RecyclerView.Adapter<BookLis
         return bookList.size
     }
 
-    fun updateStudentList(newStudentList: ArrayList<Book>) {
+    fun updateBookList(newBookList: ArrayList<Book>) {
         bookList.clear()
-        bookList.addAll(newStudentList)
+        bookList.addAll(newBookList)
         notifyDataSetChanged()
     }
 

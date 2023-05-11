@@ -34,7 +34,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/txtSubtitle"
+                android:id="@+id/txtPhoneNumber"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:text="Subtitle"
@@ -43,26 +43,26 @@
                 app:layout_constraintTop_toBottomOf="@+id/textTitle" />
 
             <Button
-                android:id="@+id/btnEdit"
+                android:id="@+id/btnDetail"
                 android:layout_width="104dp"
                 android:layout_height="45dp"
                 android:layout_marginEnd="16dp"
-                android:text="Edit"
-                app:layout_constraintBottom_toBottomOf="@+id/textAuthor"
+                android:text="Detail"
+                app:layout_constraintBottom_toBottomOf="@+id/textAuthorDetail"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textAuthor"
+                app:layout_constraintTop_toTopOf="@+id/textAuthorDetail"
                 app:layout_constraintVertical_bias="0.714" />
 
             <TextView
-                android:id="@+id/textAuthor"
+                android:id="@+id/textAuthorDetail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
                 android:text="Author"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/txtSubtitle"
-                app:layout_constraintTop_toBottomOf="@+id/txtSubtitle" />
+                app:layout_constraintStart_toStartOf="@+id/txtPhoneNumber"
+                app:layout_constraintTop_toBottomOf="@+id/txtPhoneNumber" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 

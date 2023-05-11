@@ -20,7 +20,7 @@ class BookViewModel(application: Application): AndroidViewModel(application) {
     private var queue: RequestQueue? = null
 
 
-    fun refresh() {
+    fun refreshData() {
         loadingLD.value = true
         bookLoadErrorLD.value = false
 
@@ -30,13 +30,13 @@ class BookViewModel(application: Application): AndroidViewModel(application) {
         val stringRequest = StringRequest(
             Request.Method.GET, url,
             {
-                Log.d("showvoley", it)
+                //Log.d("showvoley", it)
                 val sType = object : TypeToken<ArrayList<Book>>() { }.type
                 val result = Gson().fromJson<ArrayList<Book>>(it, sType)
                 booksLD.value = result
                 loadingLD.value = false
 
-                Log.d("showvoley", result.toString())
+                //Log.d("showvoley", result.toString())
 
 
             },
