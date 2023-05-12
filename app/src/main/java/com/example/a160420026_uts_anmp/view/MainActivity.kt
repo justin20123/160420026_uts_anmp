@@ -26,15 +26,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         drawerLayout = findViewById(R.id.drawerLayout)
         navController = (supportFragmentManager.findFragmentById(R.id.fragmentHost)
-                as NavHostFragment).navController
+               as NavHostFragment).navController
         NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
         val navView = findViewById<NavigationView>(R.id.navView)
         NavigationUI.setupWithNavController(navView, navController)
+        bottomNav.setupWithNavController(navController)
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
         return NavigationUI.navigateUp(navController, drawerLayout)
                 || super.onSupportNavigateUp()
+
     }
 
 

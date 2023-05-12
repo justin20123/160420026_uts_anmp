@@ -56,5 +56,15 @@
         android:name="com.example.a160420026_uts_anmp.view.EditProfileFragment"
         android:label="fragment_edit_profile"
         tools:layout="@layout/fragment_edit_profile" />
+    <fragment
+        android:id="@+id/itemSettings"
+        android:name="com.example.a160420026_uts_anmp.view.SettingFragment"
+        android:label="fragment_blank"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/itemHistory"
+        android:name="com.example.a160420026_uts_anmp.view.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" />
 
 </navigation>
