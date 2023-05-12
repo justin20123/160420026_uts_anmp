@@ -36,7 +36,7 @@ class BookViewModel(application: Application): AndroidViewModel(application) {
                 booksLD.value = result
                 loadingLD.value = false
 
-                //Log.d("showvoley", result.toString())
+                Log.d("showvoley", result.toString())
 
 
             },
